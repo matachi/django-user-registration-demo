@@ -1,0 +1,23 @@
+/*body {*/
+  /*padding-top: 50px;*/
+/*}*/
+
+.ad-nav {
+  background-color: #3d5e7c;
+}
+
+.ad-nav .navbar-brand {
+  color: #fff;
+}
+
+.ad-nav .navbar-nav > li > a {
+  color: #b8ccda;
+}
+
+.ad-nav .navbar-nav > .open > a, .ad-nav .navbar-nav > .open > a:focus {
+  background-color: #264d72;
+}
+
+.ad-nav.navbar-inverse .navbar-nav > .active > a {
+  background-color: #264d72;
+}

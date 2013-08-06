@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Account demo{% endblock %}</title>
+  {% block meta %}{% endblock %}
+  {% comment %}<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">{% endcomment %}
+  <link rel="stylesheet" type="text/css" href="http://twbs.github.io/bootstrap/dist/css/bootstrap.min.css">
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static "css/core.css" %}">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+  {% block js %}{% endblock %}
+</head>
+<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+    <div class="navbar navbar-inverse ad-nav">
+      <div class="container">
+        <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'index' %}">Account demo</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'userena_profile_list' %}">Members</a></li>
+            <li{% if page == 'about' %} class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
+            <li{% if page == 'help' %} class="active"{% endif %}><a href="{% url 'help' %}">Help</a></li>
+          </ul>
+          {% if user.is_authenticated %}
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.username }} <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><a tabindex="-1" href="{% url 'userena_profile_detail' user.username %}">Profile</a></li>
+              <li><a tabindex="-1" href="{% url 'userena_profile_edit' user.username %}">Edit profile</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="{% url 'userena_signout' %}">Sign out</a></li>
+              </ul>
+            </li>
+          </ul>
+          {% else %}
+          <ul class="nav navbar-nav pull-right">
+            <li{% if page == 'signin' %} class="active"{% endif %}><a href="{% url 'userena_signin' %}">Sign in</a></li>
+            <li{% if page == 'signup' %} class="active"{% endif %}><a href="{% url 'userena_signup' %}">Register</a></li>
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    {% block body %}
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+        {% for breadcrumb in request.breadcrumbs %}
+          {% if not forloop.last %}<li><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>{% else %}<li class="active">{{ breadcrumb.name }}</li>{% endif %}
+        {% endfor %}
+        </ul>
+        <h2>{% block content_title %}{% endblock %}</h2>
+      </div>
+    </div>
+    {% block content %}{% endblock %}
+    {% endblock %}
+  </div>
+</body>
+</html>

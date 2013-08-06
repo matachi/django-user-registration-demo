@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block content_title %}{{ block.super }}<li class="active">Help</li>{% endblock %}
+
+{% block content %}{{ page }}{% endblock %}

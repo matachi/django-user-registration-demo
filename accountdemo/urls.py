@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from rest_framework.urlpatterns import format_suffix_patterns
+from core.views import UsernameAvailable
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -17,4 +19,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^accounts/', include('userena.urls')),
+
+    url(r'^api/username_available/(?P<username>[a-zA-Z0-9_-]+)/$', UsernameAvailable.as_view()),
 )
+
+urlpatterns = format_suffix_patterns(urlpatterns)

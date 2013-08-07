@@ -149,6 +149,8 @@ INSTALLED_APPS = (
 
     'widget_tweaks',
 
+    'rest_framework',
+
     'accounts',
 
     'core',

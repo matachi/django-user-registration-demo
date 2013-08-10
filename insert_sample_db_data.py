@@ -35,3 +35,10 @@ if __name__ == "__main__":
 
     for user in users:
         create_user(user['user'], user['email'], 'lol')
+
+    from django.contrib.sites.models import Site
+
+    site = Site.objects.get(pk=1)
+    site.domain = '127.0.0.1:8000'
+    site.name = 'Account demo'
+    site.save()

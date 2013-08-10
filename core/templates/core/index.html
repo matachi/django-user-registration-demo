@@ -1,3 +1,13 @@
 {% extends 'base.html' %}
+{% load url from future %}
 
-{% block content_title %}<li class="active">Home</li>{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-12 col-lg-12">
+    <div class="jumbotron">
+      <h1>Hello, world!</h1>
+      <a href="{% url 'help' %}" class="btn btn-primary btn-large">Learn more »</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

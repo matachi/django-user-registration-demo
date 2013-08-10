@@ -25,9 +25,9 @@
         <a class="navbar-brand" href="{% url 'index' %}">Account demo</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'userena_profile_list' %}">Members</a></li>
-            <li{% if page == 'about' %} class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
-            <li{% if page == 'help' %} class="active"{% endif %}><a href="{% url 'help' %}">Help</a></li>
+            <li{% if current_page == 'members' %} class="active"{% endif %}><a href="{% url 'userena_profile_list' %}">Members</a></li>
+            <li{% if current_page == 'about' %} class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
+            <li{% if current_page == 'help' %} class="active"{% endif %}><a href="{% url 'help' %}">Help</a></li>
           </ul>
           {% if user.is_authenticated %}
           <ul class="nav navbar-nav pull-right">
@@ -43,8 +43,8 @@
           </ul>
           {% else %}
           <ul class="nav navbar-nav pull-right">
-            <li{% if page == 'signin' %} class="active"{% endif %}><a href="{% url 'userena_signin' %}">Sign in</a></li>
-            <li{% if page == 'signup' %} class="active"{% endif %}><a href="{% url 'userena_signup' %}">Register</a></li>
+            <li{% if current_page == 'signin' %} class="active"{% endif %}><a href="{% url 'userena_signin' %}">Sign in</a></li>
+            <li{% if current_page == 'signup' %} class="active"{% endif %}><a href="{% url 'userena_signup' %}">Register</a></li>
           </ul>
           {% endif %}
         </div>
@@ -60,7 +60,11 @@
           {% if not forloop.last %}<li><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>{% else %}<li class="active">{{ breadcrumb.name }}</li>{% endif %}
         {% endfor %}
         </ul>
-        <h2>{% block content_title %}{% endblock %}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        {% block content_title %}{% endblock %}
       </div>
     </div>
     {% block content %}{% endblock %}

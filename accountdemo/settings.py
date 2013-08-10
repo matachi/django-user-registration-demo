@@ -1,5 +1,7 @@
 # Django settings for accountdemo project.
 
+PROJECT_FOLDER = 'INSERT_PROJECT_FOLDER'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -84,7 +86,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '6l-d3623+@i5!jvw^(42r*n7zmj94%nw6&_5jmtnw7fe0=zo(z'
+SECRET_KEY = 'INSERT_SECRET_KEY'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -163,7 +165,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ANONYMOUS_USER_ID = -1
 
@@ -172,6 +174,8 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
+
+USERENA_DEFAULT_PRIVACY = 'open'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

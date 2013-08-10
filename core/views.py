@@ -10,12 +10,12 @@ def index(request):
     return render(request, 'core/index.html')
 
 def about(request):
-    context = {'page': 'about'}
+    context = {'current_page': 'about'}
     request.breadcrumbs((('Home', reverse('index')), ('About', '')))
-    return render(request, 'core/help.html', context)
+    return render(request, 'core/about.html', context)
 
 def help(request):
-    context = {'page': 'help'}
+    context = {'current_page': 'help'}
     request.breadcrumbs((('Home', reverse('index')), ('Help', '')))
     return render(request, 'core/help.html', context)
 

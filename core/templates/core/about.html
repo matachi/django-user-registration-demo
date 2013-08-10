@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load url from future %}
+{% load page_title %}
+
+{% block title %}{{ 'Help'|page_title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-12 col-lg-12">
+    <div class="page-header">
+      <h1>/about <small>Every site has an About page..!</small></h1>
+    </div>
+    <p>Yolo Swag! This page is kinda pointless. Dunno why I even have it.</p>
+    <p>Two funny blog posts:</p>
+    <ul>
+      <li><a href="http://blog.sanctum.geek.nz/vim-koans/">Vim Koans</a></li>
+      <li><a href="http://stevelosh.com/blog/2013/04/git-koans/">Git Koans</a></li>
+    </ul>
+    <p>Funny video:</p>
+    <ul>
+      <li><a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></li>
+    </ul>
+    <p>If you want real, fleshy information, then I recommend you to visit the Help page instead.</p>
+    <p><a href="{% url 'help' %}" class="btn btn-primary btn-large">Visit the Help page »</a></p>
+  </div>
+</div>
+{% endblock %}

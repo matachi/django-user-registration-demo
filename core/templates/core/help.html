@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
-{% load url from future %}
+{% load page_title %}
 
-{% block content_title %}{{ block.super }}<li class="active">Help</li>{% endblock %}
+{% block title %}{{ 'Help'|page_title }}{% endblock %}
 
-{% block content %}{{ page }}{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-lg-6">
+    <div class="jumbotron">
+      <h2>Welcome to the help section!</h2>
+      <p>Here you can find answers to all your questions regarding this site!
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h3><span class="icon-stack"><i class="icon-circle icon-stack-base"></i><i class="icon-question icon-light icon-3x"></i></span> What is this site?</h3>
+    <p>A little demo site to try out Django Userena (Django app that adds user registration capability). I have customized it a bit and checked how it works basically.</p>
+    <h3><span class="icon-stack"><i class="icon-circle icon-stack-base"></i><i class="icon-question icon-light icon-3x"></i></span> Which other libs are being used?</h3>
+    <p>djangorestframework, django-breadcrumbs and django-widget-tweaks.</p>
+    <p>The UI is powered by jQuery and Twitter Bootstrap 3.</p>
+    <p>The icons are from Font Awesome.</p>
+    <h3><span class="icon-stack"><i class="icon-circle icon-stack-base"></i><i class="icon-question icon-light icon-3x"></i></span> How is the registration page built?</h3>
+    <p>The input fields are dynamically validated with jQuery. Dynamically checking if a username is already taken is made with jQuery.ajax, which query the JSON API at http://127.0.0.1:8000/api/username_available/[username]/</p>
+    <h3><span class="icon-stack"><i class="icon-circle icon-stack-base"></i><i class="icon-question icon-light icon-3x"></i></span> Where can I find the source code?</h3>
+    <p>The project is licensed under GPL version 3 or later. The code repository can be found on Github at <a href="https://github.com/MaTachi/django-user-registration-demo">MaTachi/django-user-registration-demo</a>.</p>
+    <h3><span class="icon-stack"><i class="icon-circle icon-stack-base"></i><i class="icon-question icon-light icon-3x"></i></span> Which tools did you use?</h3>
+    <p>Vim, Firefox and Terminator on Linux (more specific the Linux distribution Manjaro).</p>
+    <h3><span class="icon-stack"><i class="icon-circle icon-stack-base"></i><i class="icon-question icon-light icon-3x"></i></span> Author?</h3>
+    <p>Daniel Jonsson, you can find me on <a href="https://twitter.com/DanielJonss">@DanielJonss</a>.</p>
+  </div>
+</div>
+{% endblock %}

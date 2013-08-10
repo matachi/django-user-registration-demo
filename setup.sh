@@ -21,7 +21,7 @@ echo "ERROR: Must be run as root."
     exit 1
 fi
 
-# Store if python-virtualenv are installed
+# Store if python-virtualenv is installed
 PYTHON_VIRTUALENV_INSTALLED=$(pacman -Qs python2-virtualenv)
 
 # Install virtualenv

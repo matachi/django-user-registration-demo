@@ -7,6 +7,14 @@ Copyright (C) 2013 Daniel Jonsson,
 [@DanielJonss](https://twitter.com/DanielJonss)  
 Licensed under [GNU GPL version 3 or later](LICENSE)
 
+## YouTube video
+
+If you don't want to download the application but still want to check it out,
+you can instead click on the image below to watch it in action on YouTube.
+
+[![YouTube thumbnail](youtube-thumbnail.jpg "Watch on
+YouTube")](http://youtu.be/k9eoC6APhHM)
+
 ## Setup
 
 1. Open [setup.sh](setup.sh) and add your Linux username to `USER=''`.

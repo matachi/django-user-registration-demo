@@ -1,7 +1,9 @@
 # Django User Registration Demo
 
 Django site with user registration functionality powered by
-[Userena](http://docs.django-userena.org/en/latest/).
+[Userena](http://docs.django-userena.org/en/latest/). This project uses a
+modified version of Userena available
+[here](https://github.com/MaTachi/django-userena).
 
 Copyright (C) 2013 Daniel Jonsson,
 [@DanielJonss](https://twitter.com/DanielJonss)  
